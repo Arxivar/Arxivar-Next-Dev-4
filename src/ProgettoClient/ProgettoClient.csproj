@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1DC4199C-2D8A-42BD-A98B-AF1F46AFD888}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProgettoClient</RootNamespace>
+    <AssemblyName>ProgettoClient</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Abletech.Arxivar.Client.Contracts, Version=7.0.0.0, Culture=neutral, PublicKeyToken=5954fa6a2fb99e64, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Abletech.Arxivar.Client.Contracts.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Abletech.Arxivar.Client.PlugIn, Version=7.0.0.0, Culture=neutral, PublicKeyToken=5954fa6a2fb99e64, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Abletech.Arxivar.Client.PlugIn.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Abletech.Arxivar.Client.WCFConnector, Version=7.0.0.0, Culture=neutral, PublicKeyToken=5954fa6a2fb99e64, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Abletech.Arxivar.Client.WCFConnector.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Abletech.Arxivar.Entities, Version=7.0.0.0, Culture=neutral, PublicKeyToken=5954fa6a2fb99e64, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Abletech.Arxivar.Entities.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Abletech.PlugIn, Version=7.0.0.0, Culture=neutral, PublicKeyToken=5954fa6a2fb99e64, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Abletech.PlugIn.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Abletech.Utility.Convert, Version=7.0.0.0, Culture=neutral, PublicKeyToken=0b3ac022af8efa06, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Abletech.Utility.Convert.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormConfigurazioneImpostazioni.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConfigurazioneImpostazioni.Designer.cs">
+      <DependentUpon>FormConfigurazioneImpostazioni.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDocumentiFascicolo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDocumentiFascicolo.Designer.cs">
+      <DependentUpon>FormDocumentiFascicolo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormArchiviazione.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormArchiviazione.Designer.cs">
+      <DependentUpon>FormArchiviazione.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTaskRichiestaFerie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTaskRichiestaFerie.Designer.cs">
+      <DependentUpon>FormTaskRichiestaFerie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Immaginette.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Immaginette.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Immagini.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Immagini.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PluginClientEsempioCorso_Archiviazione.cs" />
+    <Compile Include="PluginClientEsempioCorso_ComandiFascicoli.cs" />
+    <Compile Include="PluginClientEsempioCorso_ComandiProfili.cs" />
+    <Compile Include="PluginClientEsempioCorso_Evento.cs" />
+    <Compile Include="PluginClientEsempioCorso_RibbonMain.cs" />
+    <Compile Include="PluginClientEsempioCorso_TaskWf.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\edit.png" />
+    <Content Include="Images\flash.png" />
+    <Content Include="Images\gear.png" />
+    <Content Include="Images\line-chart.png" />
+    <Content Include="Lib\Abletech.Arxivar.Client.Contracts.dll" />
+    <Content Include="Lib\Abletech.Arxivar.Client.PlugIn.dll" />
+    <Content Include="Lib\Abletech.Arxivar.Client.WCFConnector.dll" />
+    <Content Include="Lib\Abletech.Arxivar.Entities.dll" />
+    <Content Include="Lib\Abletech.PlugIn.dll" />
+    <Content Include="Lib\Abletech.Utility.Convert.dll" />
+    <Content Include="PluginConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\address_book2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormConfigurazioneImpostazioni.resx">
+      <DependentUpon>FormConfigurazioneImpostazioni.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDocumentiFascicolo.resx">
+      <DependentUpon>FormDocumentiFascicolo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormArchiviazione.resx">
+      <DependentUpon>FormArchiviazione.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTaskRichiestaFerie.resx">
+      <DependentUpon>FormTaskRichiestaFerie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Immaginette.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Immaginette.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Immagini.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Immagini.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibreriaComune\LibreriaComune.csproj">
+      <Project>{ac9cb032-6bb2-431d-86e0-fb509cbb8cc7}</Project>
+      <Name>LibreriaComune</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

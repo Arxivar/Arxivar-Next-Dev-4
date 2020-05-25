@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE50879F-DE2E-457D-AC3A-D51A403B16EB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProgettoWorkflow</RootNamespace>
+    <AssemblyName>ProgettoWorkflow</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Abletech.Arxivar.Client.Contracts, Version=7.0.0.0, Culture=neutral, PublicKeyToken=5954fa6a2fb99e64, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Abletech.Arxivar.Client.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Abletech.Arxivar.Client.PlugIn, Version=7.0.0.0, Culture=neutral, PublicKeyToken=5954fa6a2fb99e64, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Abletech.Arxivar.Client.PlugIn.dll</HintPath>
+    </Reference>
+    <Reference Include="Abletech.Arxivar.Client.WCFConnector, Version=7.0.0.0, Culture=neutral, PublicKeyToken=5954fa6a2fb99e64, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Abletech.Arxivar.Client.WCFConnector.dll</HintPath>
+    </Reference>
+    <Reference Include="Abletech.Arxivar.Entities, Version=7.0.0.0, Culture=neutral, PublicKeyToken=5954fa6a2fb99e64, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Abletech.Arxivar.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="Abletech.PlugIn, Version=7.0.0.0, Culture=neutral, PublicKeyToken=5954fa6a2fb99e64, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Abletech.PlugIn.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTask.Designer.cs">
+      <DependentUpon>FormTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Immagini.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Immagini.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PluginWorkflowEsempioCorso_Link.cs" />
+    <Compile Include="PluginWorkflowEsempioCorso_Task.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormTask.resx">
+      <DependentUpon>FormTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Immagini.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Immagini.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\address_book2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contract.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\date-time_preferences.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\desktop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\history2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id_card.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Lib\Abletech.Arxivar.Client.Contracts.dll" />
+    <Content Include="Lib\Abletech.Arxivar.Client.PlugIn.dll" />
+    <Content Include="Lib\Abletech.Arxivar.Client.WCFConnector.dll" />
+    <Content Include="Lib\Abletech.Arxivar.Entities.dll" />
+    <Content Include="Lib\Abletech.PlugIn.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

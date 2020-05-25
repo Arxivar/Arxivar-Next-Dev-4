@@ -1,0 +1,7 @@
+<Deploy>
+    <Plugins>
+  		<FilePlugin>ProgettoClient.dll</FilePlugin>
+	</Plugins>
+	<Dependences>
+	</Dependences>  
+</Deploy>
