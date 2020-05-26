@@ -1,9 +1,10 @@
 [![Arxivar](http://www.arxivar.it/download/resources/loghi/Logo-ARXivar_orizzontale-nero.png)](http://www.arxivar.it/)
-# Arxivar-Framework
+# ARXivar Next Dev 4
 
 > Examples for DEV course of ARXivar NEXT (Day 4)
-* Server Plugins (WXF/WebApi)
-* Windows Client Plugins
+* Server plugins (WCF/WebApi)
+* Server rest plugins
+* Windows client plugins
 * Workflow plugins (Link/Task)
 
 ## Installation
