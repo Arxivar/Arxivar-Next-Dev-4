@@ -41,13 +41,12 @@ namespace IdentityServer
                     AllowedGrantTypes = GrantTypes.Hybrid,  // code + token_id
                     UpdateAccessTokenClaimsOnRefresh = true,
                     AlwaysIncludeUserClaimsInIdToken = true,
-                    RedirectUris = {"https://localhost/ARXivarAuthorizationServer/OAuth/OpenIdAuthorize"},
-                    FrontChannelLogoutUri = "https://localhost/Abletech.Arxivar.Client.Web.Portal",
-                    PostLogoutRedirectUris = {"https://localhost/Abletech.Arxivar.Client.Web.Portal"},
+                    RedirectUris = {"https://localhost/ARXivarNextWebPortal/OAuth/OpenIdAuthorize"},
+                    FrontChannelLogoutUri = "https://localhost/ARXivarNextWebPortal",
+                    PostLogoutRedirectUris = {"https://localhost/ARXivarNextWebPortal"},
                     RequireConsent = true,
                     AllowedScopes = {IdentityServerConstants.StandardScopes.OpenId, IdentityServerConstants.StandardScopes.Profile,IdentityServerConstants.StandardScopes.Email , "webdemo"},
                 },
-                // Code flow interactive
                 new Client
                 {
                     ClientId = "client-password",
@@ -76,6 +75,25 @@ namespace IdentityServer
                     RequireConsent = true,
                     AllowedScopes = {IdentityServerConstants.StandardScopes.OpenId, IdentityServerConstants.StandardScopes.Profile, "scope1", "scope2", "webapi", IdentityServerConstants.StandardScopes.Email, "webdemo"},
                 },
+                #region Development
+                new Client
+                {
+                    ClientId = "client-hybrid-development",
+                    ClientName = "ARXivar OpenID Development",
+                    ClientSecrets = {new Secret("AEE7C064-46CF-45CA-A0EF-C2A875B35EF2".Sha256())},
+                    RequirePkce = false,
+                    AllowPlainTextPkce = false,
+                    AllowOfflineAccess = true,
+                    AllowedGrantTypes = GrantTypes.Hybrid,  // code + token_id
+                    UpdateAccessTokenClaimsOnRefresh = true,
+                    AlwaysIncludeUserClaimsInIdToken = true,
+                    RedirectUris = {"https://localhost/ARXivarAuthorizationServer/OAuth/OpenIdAuthorize"},
+                    FrontChannelLogoutUri = "https://localhost/Abletech.Arxivar.Client.Web.Portal",
+                    PostLogoutRedirectUris = {"https://localhost/Abletech.Arxivar.Client.Web.Portal"},
+                    RequireConsent = true,
+                    AllowedScopes = {IdentityServerConstants.StandardScopes.OpenId, IdentityServerConstants.StandardScopes.Profile,IdentityServerConstants.StandardScopes.Email , "webdemo"},
+                },
+                #endregion
             };
     }
 }
