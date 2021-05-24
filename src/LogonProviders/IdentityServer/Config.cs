@@ -41,7 +41,7 @@ namespace IdentityServer
                     AllowedGrantTypes = GrantTypes.Hybrid,  // code + token_id
                     UpdateAccessTokenClaimsOnRefresh = true,
                     AlwaysIncludeUserClaimsInIdToken = true,
-                    RedirectUris = {"https://localhost/ARXivarNextWebPortal/OAuth/OpenIdAuthorize"},
+                    RedirectUris = {"https://localhost/ARXivarNextAuthentication/OAuth/OpenIdAuthorize"},
                     FrontChannelLogoutUri = "https://localhost/ARXivarNextWebPortal",
                     PostLogoutRedirectUris = {"https://localhost/ARXivarNextWebPortal"},
                     RequireConsent = true,
