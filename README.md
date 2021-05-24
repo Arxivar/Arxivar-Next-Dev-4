@@ -1,4 +1,4 @@
-[![Arxivar](http://www.arxivar.it/download/resources/loghi/Logo-ARXivar_orizzontale-nero.png)](http://www.arxivar.it/)
+[![Arxivar](https://portal.arxivar.it/images/matukio/ARXivar-Academy-Logo-400x134.png)](http://www.arxivar.it/)
 # ARXivar Next Dev 4
 
 > Examples for DEV course of ARXivar NEXT (Day 4)
