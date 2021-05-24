@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgettoClient", "ProgettoClient\ProgettoClient.csproj", "{1DC4199C-2D8A-42BD-A98B-AF1F46AFD888}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgettoServer", "ProgettoServer\ProgettoServer.csproj", "{CFB9D258-17C8-4C48-A5CD-6786F4CB55A5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibreriaComune", "LibreriaComune\LibreriaComune.csproj", "{AC9CB032-6BB2-431D-86E0-FB509CBB8CC7}"
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1DC4199C-2D8A-42BD-A98B-AF1F46AFD888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DC4199C-2D8A-42BD-A98B-AF1F46AFD888}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1DC4199C-2D8A-42BD-A98B-AF1F46AFD888}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1DC4199C-2D8A-42BD-A98B-AF1F46AFD888}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CFB9D258-17C8-4C48-A5CD-6786F4CB55A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CFB9D258-17C8-4C48-A5CD-6786F4CB55A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFB9D258-17C8-4C48-A5CD-6786F4CB55A5}.Release|Any CPU.ActiveCfg = Release|Any CPU

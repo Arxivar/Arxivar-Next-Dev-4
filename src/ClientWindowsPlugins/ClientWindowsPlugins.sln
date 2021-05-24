@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibreriaComune", "..\ServerPlugins\LibreriaComune\LibreriaComune.csproj", "{AC9CB032-6BB2-431D-86E0-FB509CBB8CC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgettoClient", "ProgettoClient\ProgettoClient.csproj", "{1DC4199C-2D8A-42BD-A98B-AF1F46AFD888}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC9CB032-6BB2-431D-86E0-FB509CBB8CC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC9CB032-6BB2-431D-86E0-FB509CBB8CC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC9CB032-6BB2-431D-86E0-FB509CBB8CC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC9CB032-6BB2-431D-86E0-FB509CBB8CC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DC4199C-2D8A-42BD-A98B-AF1F46AFD888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DC4199C-2D8A-42BD-A98B-AF1F46AFD888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DC4199C-2D8A-42BD-A98B-AF1F46AFD888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DC4199C-2D8A-42BD-A98B-AF1F46AFD888}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

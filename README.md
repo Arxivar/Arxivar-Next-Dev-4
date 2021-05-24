@@ -4,12 +4,13 @@
 > Examples for DEV course of ARXivar NEXT (Day 4)
 * Server plugins (WCF/WebApi)
 * Server rest plugins
-* Windows client plugins
 * Workflow plugins (Link/Task)
+* Logon provider for Password Grant Flow
+* Logon provider for OpenID Connect Flow
 
 ## Installation
 
-* To use these examples you need VisualStudio 2015 or later (or any IDE that support .NET Framework 3.5).
+* To use these examples you need VisualStudio 2019 or later (or any IDE that support .Net Framework and .Net Core 3.1).
 
 ## Compile and run
 

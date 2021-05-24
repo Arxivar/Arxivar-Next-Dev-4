@@ -150,12 +150,11 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LibreriaComune\LibreriaComune.csproj">
+    <ProjectReference Include="..\..\ServerPlugins\LibreriaComune\LibreriaComune.csproj">
       <Project>{ac9cb032-6bb2-431d-86e0-fb509cbb8cc7}</Project>
       <Name>LibreriaComune</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
