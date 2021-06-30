@@ -41,7 +41,7 @@ namespace MvcCode
 
                     options.ClientId = "client-hybrid-mvc";
                     options.ClientSecret = "2C59A271-87C0-4B7D-8583-9B7CA7954E6F";
-                    options.UsePkce = false;
+                    options.UsePkce = false; // Possibile solo se ResponseType = "code"
                     // code flow + PKCE (PKCE is turned on by default)
                     options.ResponseType = "code id_token";
                     options.Scope.Clear();
