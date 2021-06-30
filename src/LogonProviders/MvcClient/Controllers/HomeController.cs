@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 
 namespace MvcCode.Controllers
 {
@@ -19,6 +21,14 @@ namespace MvcCode.Controllers
         [Authorize]
         public IActionResult Secure() => View();
 
-        public IActionResult Logout() => SignOut("cookie", "oidc");
+        public async Task<IActionResult> Logout()
+        {
+            // Only remove local site cookie
+            await HttpContext.SignOutAsync("cookie");
+            return RedirectToAction("Index");
+
+            // Also Logout from Identity Server SSO
+            //return SignOut("cookie", "oidc");
+        }
     }
 }

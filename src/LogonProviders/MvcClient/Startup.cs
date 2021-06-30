@@ -50,10 +50,8 @@ namespace MvcCode
                     options.Scope.Add("openid");
                     options.Scope.Add("profile");
                     options.Scope.Add("email");
-                    options.Scope.Add("offline_access");
                     options.Scope.Add("webdemo");
-                    options.Scope.Add("webapi");
-
+                    
                     // Capire come prendere la sezione scope jwt
                     // not mapped by default
                     //options.ClaimActions.MapJsonKey(System.Security.Claims.ClaimTypes.Email, "email");

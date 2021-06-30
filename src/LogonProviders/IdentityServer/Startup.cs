@@ -50,13 +50,14 @@ namespace IdentityServer
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
 
+
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
                 {
                     options.Cookie = new CookieBuilder()
                     {
                         Name = "IdentityServer",
-                        SameSite = SameSiteMode.Lax,
+                        SameSite = SameSiteMode.None,
                         HttpOnly = true,
                         SecurePolicy = CookieSecurePolicy.Always,
                     };
