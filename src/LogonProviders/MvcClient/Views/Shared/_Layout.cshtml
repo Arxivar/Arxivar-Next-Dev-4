@@ -27,6 +27,9 @@
 
                         @if (User.Identity.IsAuthenticated)
                         {
+                            <li class="text-info">
+                                Hi, @Html.Encode(Context.User.Identity.Name)
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Logout">Logout</a>
                             </li>

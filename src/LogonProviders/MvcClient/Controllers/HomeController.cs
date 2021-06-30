@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace MvcCode.Controllers
 {
@@ -18,6 +16,7 @@ namespace MvcCode.Controllers
         [AllowAnonymous]
         public IActionResult Index() => View();
 
+        [Authorize]
         public IActionResult Secure() => View();
 
         public IActionResult Logout() => SignOut("cookie", "oidc");

@@ -32,7 +32,7 @@ namespace MvcCode
                 {
                     options.Cookie.Name = "CorsoMvc";
 
-                    options.Events.OnSigningOut = async e => { await e.HttpContext.RevokeUserRefreshTokenAsync(); };
+                    //options.Events.OnSigningOut = async e => { await e.HttpContext.RevokeUserRefreshTokenAsync(); };
                 })
                 .AddOpenIdConnect("oidc", options =>
                 {
@@ -71,8 +71,6 @@ namespace MvcCode
                         NameClaimType = "name",
                         RoleClaimType = "role",
                         RoleClaimTypeRetriever = (token, s) => s,
-                        
-                        
                     };
                     options.Events = new OpenIdConnectEvents
                     {
@@ -86,12 +84,19 @@ namespace MvcCode
 
                             // do something with the JWTs
                             return Task.CompletedTask;
+                        },
+                        OnRemoteFailure = context =>
+                        {
+                            context.Response.Redirect("/");
+                            context.HandleResponse();
+
+                            return Task.FromResult(0);
                         }
                     };
                 });
 
             // adds global authorization policy to require authenticated users
-            services.AddAuthorization(options => { options.FallbackPolicy = options.DefaultPolicy; });
+            //services.AddAuthorization(options => { options.FallbackPolicy = options.DefaultPolicy; });
 
             // adds user and client access token management
             services.AddAccessTokenManagement(options =>
