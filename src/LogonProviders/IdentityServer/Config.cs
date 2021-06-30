@@ -4,6 +4,7 @@
 
 using IdentityServer4.Models;
 using System.Collections.Generic;
+using IdentityModel;
 using IdentityServer4;
 
 namespace IdentityServer
@@ -15,7 +16,11 @@ namespace IdentityServer
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
-                new IdentityResources.Email()
+                new IdentityResources.Email(),
+                new IdentityResource("role","role",new List<string>
+                {
+                    "role"
+                }),
             };
 
         public static IEnumerable<ApiScope> ApiScopes =>
@@ -73,7 +78,8 @@ namespace IdentityServer
                     FrontChannelLogoutUri = "https://localhost:44392/signout-oidc",
                     PostLogoutRedirectUris = {"https://localhost:44392/signout-callback-oidc"},
                     RequireConsent = true,
-                    AllowedScopes = {IdentityServerConstants.StandardScopes.OpenId, IdentityServerConstants.StandardScopes.Profile, "scope1", "scope2", "webapi", IdentityServerConstants.StandardScopes.Email, "webdemo"},
+                    AllowedScopes = {IdentityServerConstants.StandardScopes.OpenId, IdentityServerConstants.StandardScopes.Profile, "scope1", "scope2", "webapi", IdentityServerConstants.StandardScopes.Email, "webdemo", "role"},
+                    
                 },
                 #region Development
                 new Client

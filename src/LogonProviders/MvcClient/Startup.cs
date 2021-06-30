@@ -51,7 +51,11 @@ namespace MvcCode
                     options.Scope.Add("profile");
                     options.Scope.Add("email");
                     options.Scope.Add("webdemo");
+                    options.Scope.Add("role");
                     
+
+
+
                     // Capire come prendere la sezione scope jwt
                     // not mapped by default
                     //options.ClaimActions.MapJsonKey(System.Security.Claims.ClaimTypes.Email, "email");
@@ -83,13 +87,23 @@ namespace MvcCode
                             // do something with the JWTs
                             return Task.CompletedTask;
                         },
+                        OnMessageReceived = context => { return Task.CompletedTask; },
+                        OnTicketReceived = context => { return Task.CompletedTask; },
+                        OnTokenResponseReceived = context => { return Task.CompletedTask; },
+                        OnAuthorizationCodeReceived = context => { return Task.CompletedTask; },
+                        OnAccessDenied = context => { return Task.CompletedTask; },
+                        OnAuthenticationFailed = context => { return Task.CompletedTask; },
+                        OnRedirectToIdentityProvider = context => { return Task.CompletedTask; },
+                        OnTokenValidated = context => { return Task.CompletedTask; },
+                        OnRedirectToIdentityProviderForSignOut = context => { return Task.CompletedTask; },
+                        OnRemoteSignOut = context => { return Task.CompletedTask; },
                         OnRemoteFailure = context =>
                         {
                             context.Response.Redirect("/");
                             context.HandleResponse();
 
                             return Task.FromResult(0);
-                        }
+                        },
                     };
                 });
 
