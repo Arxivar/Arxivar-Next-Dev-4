@@ -1,0 +1,10 @@
+﻿@model object
+
+@{
+    ViewBag.Title = "Error";
+    Layout = "_Layout";
+}
+
+<h2>Error</h2>
+
+<div class="alert-danger">@Html.Encode(ViewBag.Error)</div>

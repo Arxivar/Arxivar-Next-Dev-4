@@ -2,6 +2,12 @@
     ViewData["Title"] = "Home Page";
 }
 
+
+@if (ViewData["error"] != null)
+{
+    @Html.Encode(ViewData["error"]);
+}
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>

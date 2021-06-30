@@ -41,11 +41,9 @@ namespace MvcCode
 
                     options.ClientId = "client-hybrid-mvc";
                     options.ClientSecret = "2C59A271-87C0-4B7D-8583-9B7CA7954E6F";
-
+                    options.UsePkce = false;
                     // code flow + PKCE (PKCE is turned on by default)
                     options.ResponseType = "code id_token";
-                    options.UsePkce = false;
-
                     options.Scope.Clear();
                     options.Scope.Add("openid");
                     options.Scope.Add("profile");
@@ -53,13 +51,7 @@ namespace MvcCode
                     options.Scope.Add("webdemo");
                     options.Scope.Add("role");
                     
-
-
-
-                    // Capire come prendere la sezione scope jwt
                     // not mapped by default
-                    //options.ClaimActions.MapJsonKey(System.Security.Claims.ClaimTypes.Email, "email");
-                    //options.ClaimActions.MapJsonKey("permessi", "scope");
                     //options.ClaimActions.MapJsonKey("scope", "scope", "webdemo");
 
                     // keeps id_token smaller
@@ -99,10 +91,9 @@ namespace MvcCode
                         OnRemoteSignOut = context => { return Task.CompletedTask; },
                         OnRemoteFailure = context =>
                         {
-                            context.Response.Redirect("/");
                             context.HandleResponse();
-
-                            return Task.FromResult(0);
+                            context.Response.Redirect("/home/error?message=" + context.Failure.Message);
+                            return  Task.CompletedTask;
                         },
                     };
                 });

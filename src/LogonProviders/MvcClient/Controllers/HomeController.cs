@@ -21,6 +21,13 @@ namespace MvcCode.Controllers
         [Authorize]
         public IActionResult Secure() => View();
 
+
+        public IActionResult Error(string message)
+        {
+            ViewBag.Error = message;
+            return View();
+        }
+
         public async Task<IActionResult> Logout()
         {
             // Only remove local site cookie
