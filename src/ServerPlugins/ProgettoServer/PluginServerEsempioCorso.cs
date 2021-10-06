@@ -323,7 +323,7 @@ namespace ProgettoServer
                 // Restituisce lo status del plugin server
                 case "status":
                 {
-                    var statusResult = $"Running since {_serviceStart:F}";
+                    var statusResult = $"Running uptime: {DateTime.Now - _serviceStart} since: {_serviceStart:F}";
                     return statusResult;
                 }
 
