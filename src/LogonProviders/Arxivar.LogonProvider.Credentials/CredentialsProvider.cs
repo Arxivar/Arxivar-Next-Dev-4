@@ -41,7 +41,7 @@ namespace Arxivar.LogonProvider.Credentials
             {
                 new ProviderConfigurationItemDto {Id = "1FD4935A-52D4-4F44-899F-3ED89D8EF3CD", Name = ProviderDescriptionParam, Value = "Credentials", Description = "Logon provider description", Category = "Logon", Type = ConfigurationItemTypeEnum.String},
                 new ProviderConfigurationItemDto {Id = "B705CA4D-669C-44A5-867E-C518D63D250A", Name = ClientIdParam, Value = "", Description = "Application Id", Category = "Logon", Type = ConfigurationItemTypeEnum.String},
-                new ProviderConfigurationItemDto {Id = "C6A9AA92-118B-4221-B913-6F33BCC2E617", Name = ClientSecretParam, Value = "", Description = "Application Secret", Category = "Logon", Type = ConfigurationItemTypeEnum.String},
+                new ProviderConfigurationItemDto {Id = "C6A9AA92-118B-4221-B913-6F33BCC2E617", Name = ClientSecretParam, Value = "", Description = "Application Secret", Category = "Logon", Type = ConfigurationItemTypeEnum.ProtectedString},
                 new ProviderConfigurationItemDto {Id = "8D62F8DC-3C43-409E-BC33-8C7273D9150A", Name = IdentityServerTokenUrlParam, Value = "https://localhost:8081/connect/token", Description = "IdentityServer Login Token Url", Category = "Logon", Type = ConfigurationItemTypeEnum.String},
             };
         }
