@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 
 namespace LibreriaComune
 {
@@ -13,7 +10,5 @@ namespace LibreriaComune
         [Category("Proprietà di configurazione")]
         [DisplayName("Etichetta")]       
         public string Etichetta { get; set; }
-
-
     }
 }

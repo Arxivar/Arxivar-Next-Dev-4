@@ -8,6 +8,9 @@ using iTextSharp.text.pdf;
 
 namespace ProgettoServer
 {
+    /// <summary>
+    /// Plugin server
+    /// </summary>
     public class PluginServerEsempioCorso : Abletech.Arxivar.Server.PlugIn.AbstractPlugin
     {
         public override string Name
@@ -21,10 +24,18 @@ namespace ProgettoServer
         }
 
         private string _workingDirectory;
+        private DateTime _serviceStart;
 
         public string GetAuditFilePath()
         {
             return Path.Combine(_workingDirectory, "Audit.txt");
+        }
+
+
+        public override void Initialize()
+        {
+            // Set starting time
+            _serviceStart = DateTime.Now;
         }
 
         public override void On_Services_Started()
@@ -56,19 +67,17 @@ namespace ProgettoServer
                 switch (action)
                 {
                     case "DOWNLOAD":
-                        {
-                            int docNumber = System.Convert.ToInt32(nameValueCollection["DOCNUMBER"]);
-                            var file = manager.ARX_DOCUMENTI.Dm_Profile_GetDocument(docNumber);
-                            return rest_ReturnFile(file.FileName, file.ToMemoryStream());
-
-                        }
+                    {
+                        int docNumber = System.Convert.ToInt32(nameValueCollection["DOCNUMBER"]);
+                        var file = manager.ARX_DOCUMENTI.Dm_Profile_GetDocument(docNumber);
+                        return rest_ReturnFile(file.FileName, file.ToMemoryStream());
+                    }
                     case "INFOPROFILE":
+                    {
+                        int docNumber = System.Convert.ToInt32(nameValueCollection["DOCNUMBER"]);
+                        using (var profilo = manager.ARX_DATI.Dm_Profile_GetData_By_DocNumber(docNumber))
                         {
-
-                            int docNumber = System.Convert.ToInt32(nameValueCollection["DOCNUMBER"]);
-                            using (var profilo = manager.ARX_DATI.Dm_Profile_GetData_By_DocNumber(docNumber))
-                            {
-                                string html = @"
+                            string html = @"
                                                 <table border=1>
                                                     <CAPTION><EM>ARXivar Plugin Informazioni di profilo</EM></CAPTION>
                                                     <tr>
@@ -79,20 +88,23 @@ namespace ProgettoServer
                                                         <td>OGGETTO</td>
                                                         <td>" + profilo.DOCNAME + @"</td>
                                                     </tr>
+                                                    <tr>
+                                                        <td>NUMERO</td>
+                                                        <td>" + profilo.NUMERO + @"</td>
+                                                    </tr>
                                                 </table>";
-                                return rest_ReturnString(html);
-                            }
+                            return rest_ReturnString(html);
                         }
+                    }
                     default:
-                        {
+                    {
+                        var search = new Abletech.Arxivar.Entities.Search.Dm_Profile_Search();
+                        var select = new Abletech.Arxivar.Entities.Search.Dm_Profile_Select();
+                        select.DOCNUMBER.Selected = true;
+                        select.DOCNAME.Selected = true;
+                        var datasource = manager.ARX_SEARCH.Dm_Profile_GetData(search, select, 10);
 
-                            var search = new Abletech.Arxivar.Entities.Search.Dm_Profile_Search();
-                            var select = new Abletech.Arxivar.Entities.Search.Dm_Profile_Select();
-                            select.DOCNUMBER.Selected = true;
-                            select.DOCNAME.Selected = true;
-                            var datasource = manager.ARX_SEARCH.Dm_Profile_GetData(search, select, 10);
-
-                            string html = @"
+                        string html = @"
                                             <table border=1>
                                             <CAPTION><EM>ARXivar Plugin Rest</EM></CAPTION>
                                             <tr>
@@ -101,24 +113,24 @@ namespace ProgettoServer
                                                 <td colspan=2>COMANDO</td>
                                              </tr>";
 
-                            foreach (System.Data.DataRow row in datasource.GetDataTable(0).Rows)
-                            {
-                                string formato = @"
+                        foreach (System.Data.DataRow row in datasource.GetDataTable(0).Rows)
+                        {
+                            string formato = @"
                                 <tr>
                                     <td>{0}</td>
                                     <td>{1}</td><td><button onclick=""location.href='{2}'"">DOWNLOAD</button></td>
                                     <td><button onclick=""location.href='{3}'"">INFO</button></td>
                                  </tr>";
 
-                                string urlDownload = string.Format(@"{0}?ACTION=DOWNLOAD&DOCNUMBER={1}", ARX_Rest_PluginUrl(), row["DOCNUMBER"]);
-                                string urlInfo = string.Format(@"{0}?ACTION=INFOPROFILE&DOCNUMBER={1}", ARX_Rest_PluginUrl(), row["DOCNUMBER"]);
+                            string urlDownload = string.Format(@"{0}?ACTION=DOWNLOAD&DOCNUMBER={1}", ARX_Rest_PluginUrl(), row["DOCNUMBER"]);
+                            string urlInfo = string.Format(@"{0}?ACTION=INFOPROFILE&DOCNUMBER={1}", ARX_Rest_PluginUrl(), row["DOCNUMBER"]);
 
-                                html += string.Format(formato, row["DOCNUMBER"], row["DOCNAME"], urlDownload, urlInfo);
-                            }
-
-                            html += "</table>";
-                            return rest_ReturnString(html);
+                            html += string.Format(formato, row["DOCNUMBER"], row["DOCNAME"], urlDownload, urlInfo);
                         }
+
+                        html += "</table>";
+                        return rest_ReturnString(html);
+                    }
                 }
             }
         }
@@ -133,6 +145,7 @@ namespace ProgettoServer
                 // Non voglio inserire nulla
                 return null;
             }
+
             return base.On_Before_Dm_Utenti_Insert(client, dmUtenti, e);
         }
 
@@ -279,35 +292,40 @@ namespace ProgettoServer
 
         private readonly string _settingsFile = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "PluginCorsoImpostazioni.xml");
 
-        public override string On_ClientSentCustomAdvancedCommand(
-            Abletech.Arxivar.Server.Contracts.BaseRegisteredClient client,
-            string command,
-            string parameters)
+        public override string On_ClientSentCustomAdvancedCommand(Abletech.Arxivar.Server.Contracts.BaseRegisteredClient client, string command, string parameters)
         {
             switch (command)
             {
+                // Recupero del file delle impostazioni per i plugin client Windows (OLD)
                 case "Get":
+                {
+                    var impostazioni = new LibreriaComune.ClasseImpostazioni();
+                    if (System.IO.File.Exists(_settingsFile))
                     {
-                        var impostazioni = new LibreriaComune.ClasseImpostazioni();
-                        if (System.IO.File.Exists(_settingsFile))
+                        impostazioni = Abletech.Utility.UnicodeConvert.From_String_To_Object(System.IO.File.ReadAllText(_settingsFile), typeof(LibreriaComune.ClasseImpostazioni)) as LibreriaComune.ClasseImpostazioni;
+                        if (impostazioni == null)
                         {
-                            impostazioni = Abletech.Utility.UnicodeConvert.From_String_To_Object(System.IO.File.ReadAllText(_settingsFile), typeof(LibreriaComune.ClasseImpostazioni)) as LibreriaComune.ClasseImpostazioni;
-                            if (impostazioni == null)
-                            {
-                                impostazioni = new LibreriaComune.ClasseImpostazioni();
-                            }
+                            impostazioni = new LibreriaComune.ClasseImpostazioni();
                         }
-
-
-                        return Abletech.Utility.UnicodeConvert.From_Object_To_String(impostazioni, typeof(LibreriaComune.ClasseImpostazioni));
                     }
+
+
+                    return Abletech.Utility.UnicodeConvert.From_Object_To_String(impostazioni, typeof(LibreriaComune.ClasseImpostazioni));
+                }
+                // Salvataggio del file delle impostazioni per i plugin client Windows (OLD)
                 case "Set":
-                    {
-                        var impostazioni = Abletech.Utility.UnicodeConvert.From_String_To_Object(parameters, typeof(LibreriaComune.ClasseImpostazioni)) as LibreriaComune.ClasseImpostazioni;
-                        var valoreStringa = Abletech.Utility.UnicodeConvert.From_Object_To_String(impostazioni, typeof(LibreriaComune.ClasseImpostazioni));
-                        System.IO.File.WriteAllText(_settingsFile, valoreStringa);
-                        return valoreStringa;
-                    }
+                {
+                    var impostazioni = Abletech.Utility.UnicodeConvert.From_String_To_Object(parameters, typeof(LibreriaComune.ClasseImpostazioni)) as LibreriaComune.ClasseImpostazioni;
+                    var valoreStringa = Abletech.Utility.UnicodeConvert.From_Object_To_String(impostazioni, typeof(LibreriaComune.ClasseImpostazioni));
+                    System.IO.File.WriteAllText(_settingsFile, valoreStringa);
+                    return valoreStringa;
+                }
+                // Restituisce lo status del plugin server
+                case "status":
+                {
+                    var statusResult = $"Running since {_serviceStart:F}";
+                    return statusResult;
+                }
 
                 default:
                     return base.On_ClientSentCustomAdvancedCommand(client, command, parameters);
