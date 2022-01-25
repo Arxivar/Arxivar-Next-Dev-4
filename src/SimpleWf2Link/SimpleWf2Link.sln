@@ -1,0 +1,25 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWf2Link", "SimpleWf2Link\SimpleWf2Link.csproj", "{f36b697b-bb07-4e61-a79f-689aee648c46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{f36b697b-bb07-4e61-a79f-689aee648c46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{f36b697b-bb07-4e61-a79f-689aee648c46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{f36b697b-bb07-4e61-a79f-689aee648c46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{f36b697b-bb07-4e61-a79f-689aee648c46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5941cae4-d05c-4ed2-8298-356b096f0124}
+	EndGlobalSection
+EndGlobal
