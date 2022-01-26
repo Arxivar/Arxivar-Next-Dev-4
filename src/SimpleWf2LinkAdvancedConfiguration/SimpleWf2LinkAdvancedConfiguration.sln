@@ -1,0 +1,49 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWf2LinkAdvancedConfiguration", "SimpleWf2LinkAdvancedConfiguration\SimpleWf2LinkAdvancedConfiguration.csproj", "{4937397e-00a1-4368-b5d5-897e9722c71c}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{fba7d25d-299f-4ab4-9656-7447a2f21756}"
+	ProjectSection(SolutionItems) = preProject
+		package-lock.json = package-lock.json
+		package.json = package.json
+		postcss.config.js = postcss.config.js
+		tsconfig.json = tsconfig.json
+		webpack.config.js = webpack.config.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{f9d2a1ee-a686-463c-8b47-a665c00f2677}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\global.d.ts = scripts\global.d.ts
+		scripts\Interfaces.ts = scripts\Interfaces.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{f3ea7ca2-2f26-479d-8b4a-9b64f4e4af25}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\src\SimpleWf2LinkAdvancedConfiguration.css = scripts\src\SimpleWf2LinkAdvancedConfiguration.css
+		scripts\src\SimpleWf2LinkAdvancedConfiguration.html = scripts\src\SimpleWf2LinkAdvancedConfiguration.html
+		scripts\src\SimpleWf2LinkAdvancedConfiguration.ts = scripts\src\SimpleWf2LinkAdvancedConfiguration.ts
+	EndProjectSection
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4937397e-00a1-4368-b5d5-897e9722c71c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4937397e-00a1-4368-b5d5-897e9722c71c}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4937397e-00a1-4368-b5d5-897e9722c71c}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4937397e-00a1-4368-b5d5-897e9722c71c}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+		GlobalSection(NestedProjects) = preSolution
+		{f3ea7ca2-2f26-479d-8b4a-9b64f4e4af25} = {f9d2a1ee-a686-463c-8b47-a665c00f2677}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0f40e5a6-0d5f-4dac-8fe0-0377560f9af0}
+	EndGlobalSection
+EndGlobal

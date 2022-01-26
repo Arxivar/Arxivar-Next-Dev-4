@@ -1,0 +1,40 @@
+.arxpl-simplewf2linkadvancedconfiguration{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.arxpl-simplewf2linkadvancedconfiguration-row
+{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px 10px 0px;
+}
+
+.arxpl-simplewf2linkadvancedconfiguration-row label
+{
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.arxpl-simplewf2linkadvancedconfiguration-row a
+{
+    padding: 10px;
+    background-color: orange;
+    color: white;    
+    border-radius: 10px;
+    display: flex;    
+    max-width: 190px;
+}
+
+.arxpl-simplewf2linkadvancedconfiguration-row a:hover
+{
+    padding: 10px;    
+    background-color: #e79701e0;    
+}
+
+.arxpl-simplewf2linkadvancedconfiguration-row a i
+{
+    margin-left: 5px;
+    padding: 5px;    
+}
