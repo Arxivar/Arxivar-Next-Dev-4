@@ -19,7 +19,6 @@ namespace SimpleWf2Link
         [OutputParameter(DisplayName = "ExecutionCount", Description = "Execution counter output")]
         public int ExecutionCount { get; set; }
 
-        [Required]
         [InputParameter(DisplayName = "InputMessage", Description = "Input message", DisplayOrder = 1)]
         public string InputMessage { get; set; }
 
@@ -96,7 +95,7 @@ namespace SimpleWf2Link
                     throw new InvalidOperationException("Unable to find primary document");
                 }
 
-                if (!string.Equals(Path.GetExtension(primaryDocumentInfo.Filename), ".txt"))
+                if (!string.Equals(Path.GetExtension(primaryDocumentInfo.Filename), ".txt", StringComparison.CurrentCultureIgnoreCase))
                 {
                     throw new InvalidOperationException("Primary document is not a text file");
                 }
