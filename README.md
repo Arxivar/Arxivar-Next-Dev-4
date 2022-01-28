@@ -2,11 +2,10 @@
 # ARXivar Next Dev 4
 
 > Examples for DEV course of ARXivar NEXT (Day 4)
-* Server plugins (WCF/WebApi)
+* Server plugins: WCF and WebApi
 * Server rest plugins
-* Workflow plugins (Link/Task)
-* Logon provider for Password Grant Flow
-* Logon provider for OpenID Connect Flow
+* Workflow V1 Plugins: Link and Task
+* Workflow V2 Plugin: Link
 
 ## Installation
 
