@@ -51,18 +51,26 @@ namespace SimpleWf2LinkAdvancedConfiguration
         public IAuthProvider MyIAuthProvider { get; set; }
 
 
+        /// <summary>
+        /// Plugin is initialized
+        /// </summary>
+        /// <returns></returns>
         protected override Task OnInitializedAsync()
         {
             return base.OnInitializedAsync();
         }
 
+        /// <summary>
+        /// Validating logic
+        /// </summary>
+        /// <returns></returns>
         protected override IEnumerable<ValidationResult> OnValidate()
         {
             return base.OnValidate();
         }
 
         /// <summary>
-		/// Override this method in order to load the advanced configuration
+		/// Load the advanced configuration
 		/// </summary>
 		/// <param name="configurationItems"></param>
 		public void EnableAdvancedConfiguration(IEnumerable<WorkflowPluginConfigurationItem> configurationItems)
@@ -80,7 +88,13 @@ namespace SimpleWf2LinkAdvancedConfiguration
             _inputTest = confDictionary[InputTestName].ToString();
         }
 
-        public virtual Task<WorkflowAdvancedConfigurationCommandResponse> ExecuteAdvancedConfigurationCommandAsync(WorkflowAdvancedConfigurationCommandRequest request)
+        /// <summary>
+        /// Receives commands from frontend advanced configuration
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        public override Task<WorkflowAdvancedConfigurationCommandResponse> ExecuteAdvancedConfigurationCommandAsync(WorkflowAdvancedConfigurationCommandRequest request)
         {
 
             if (!request.Content.ContainsKey(InputTestName))
@@ -96,6 +110,11 @@ namespace SimpleWf2LinkAdvancedConfiguration
             });
         }
 
+        /// <summary>
+        /// Execute logic
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public override Task ExecuteAsync(WorkflowPluginLinkContext context)
         {
             try
@@ -115,6 +134,9 @@ namespace SimpleWf2LinkAdvancedConfiguration
             return Task.CompletedTask;
         }
 
+        /// <summary>
+        /// Free resources
+        /// </summary>
         protected override void OnDisposing()
         {
             base.OnDisposing();
