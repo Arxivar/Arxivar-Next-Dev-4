@@ -138,7 +138,7 @@ namespace SimpleWf2Link
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Simple Workflow V2 link plugin error");
+                Logger.Error(ex, "Simple Workflow V2 link plugin error: {ErrorMessage}", ex.Message);
                 Succeeded = false;
                 ErrorMessage = ex.Message;
             }
