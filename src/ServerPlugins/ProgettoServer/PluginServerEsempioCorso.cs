@@ -58,7 +58,7 @@ namespace ProgettoServer
             using (Abletech.Arxivar.Client.WCFConnectorManager manager = new Abletech.Arxivar.Client.WCFConnectorManager(ARX_Push, new ArxLogonRequest
             {
                 ClientId = "NEXTDEV",
-                ClientSecret = "5A36511B135D4A0B",
+                ClientSecret = "9D9D58F5D2BF42FB88A376453DFF6DC4",
                 Username = "Admin",
                 Password = "123"
             }))
