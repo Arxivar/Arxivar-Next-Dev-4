@@ -12,7 +12,7 @@ namespace SimpleWf2Link
     /// <summary>
     /// Simple workflow V2 link plugin
     /// </summary>
-    [Plugin("f36b697b-bb07-4e61-a79f-689aee648c46", "Simple Workflow V2 link plugin", "1.1.0", Description = "Simple Workflow V2 link plugin", Icon = "far fa-truck", UseAdvancedConfiguration = false)]
+    [Plugin("f36b697b-bb07-4e61-a79f-689aee648c46", "Simple Workflow V2 link plugin", "1.2.0", Description = "Simple Workflow V2 link plugin", Icon = "far fa-truck", UseAdvancedConfiguration = false)]
     public class SimpleWf2Link : WorkflowPluginLink
     {
         [InputParameter(DisplayName = "ExecutionCount", Description = "Execution counter input", DisplayOrder = 0)]
@@ -25,7 +25,7 @@ namespace SimpleWf2Link
         [OutputParameter(DisplayName = "Succeeded", Description = "Succeeded")]
         public bool Succeeded { get; set; }
 
-        [OutputParameter(DisplayName = "Last Execution", Description = "Last execution")]
+        [OutputParameter(DisplayName = "Last Execution", Description = "Last execution time")]
         public DateTime LastExecution { get; set; }
 
         [OutputParameter(DisplayName = "Error Message", Description = "Error message")]
@@ -80,9 +80,11 @@ namespace SimpleWf2Link
         {
             try
             {
+                Logger.Information("Simple Workflow V2 link plugin");
                 // Increment execution counter
                 ExecutionCount++;
 
+                // Set authorization bearer token
                 MyProcessDocumentApi.Configuration.DefaultHeader.Add("Authorization", $"Bearer {MyIAuthProvider.AccessToken}");
                 MyProcessApi.Configuration.DefaultHeader.Add("Authorization", $"Bearer {MyIAuthProvider.AccessToken}");
 
@@ -106,10 +108,16 @@ namespace SimpleWf2Link
                     throw new InvalidCastException("primaryDocumentFileStream is not a FileStream");
 
                 var primaryDocumentFileStreamFileName = primaryDocumentFileStream.Name;
+
+                Logger.Information("Plugin Retrieved privary document: {PrimaryDocumentFileStreamFileName}", primaryDocumentFileStreamFileName);
+
                 await primaryDocumentFileStream.DisposeAsync();
 
                 // Modify primary document
-                await File.AppendAllTextAsync(primaryDocumentFileStreamFileName, $"{Environment.NewLine}{DateTime.Now} Plugin Link: {InputMessage} [{ExecutionCount}]");
+                var content = $"{Environment.NewLine}{DateTime.Now} Plugin Link: {InputMessage} [{ExecutionCount}]";
+                Logger.Information("Plugin add content to primary document: {Content}", content);
+
+                await File.AppendAllTextAsync(primaryDocumentFileStreamFileName, content);
 
                 await using (Stream modifiedPrimaryDocument = File.OpenRead(primaryDocumentFileStreamFileName))
                 {
@@ -125,9 +133,12 @@ namespace SimpleWf2Link
 
                 ErrorMessage = null;
                 Succeeded = true;
+
+                Logger.Information("Simple Workflow V2 link plugin -> completed");
             }
             catch (Exception ex)
             {
+                Logger.Error(ex, "Simple Workflow V2 link plugin error");
                 Succeeded = false;
                 ErrorMessage = ex.Message;
             }

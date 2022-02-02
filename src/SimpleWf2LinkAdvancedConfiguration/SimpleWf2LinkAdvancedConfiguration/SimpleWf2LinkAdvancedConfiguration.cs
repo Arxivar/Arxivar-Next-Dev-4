@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace SimpleWf2LinkAdvancedConfiguration
 {
-    [Plugin("4937397e-00a1-4368-b5d5-897e9722c71c", "Simple Workflow V2 link plugin Advanced configuration", "1.1.0", Description = "Simple Workflow V2 link plugin advanced configuration", Icon = "far fa-user-check", UseAdvancedConfiguration = true)]
+    [Plugin("4937397e-00a1-4368-b5d5-897e9722c71c", "Simple Workflow V2 link plugin Advanced configuration", "1.2.0", Description = "Simple Workflow V2 link plugin advanced configuration", Icon = "far fa-user-check", UseAdvancedConfiguration = true)]
     public class SimpleWf2LinkAdvancedConfiguration : WorkflowPluginLink, IWorkflowPlugin
     {
         const string InputTestName = "inputTest";
@@ -25,7 +25,7 @@ namespace SimpleWf2LinkAdvancedConfiguration
         /// <summary>
         /// DateTime type output parameter named LastExecution
         /// </summary>
-        [OutputParameter(DisplayName = "LastExecution", Description = "Please insert a description")]
+        [OutputParameter(DisplayName = "LastExecution", Description = "Last execution time")]
         public DateTime LastExecution { get; set; }
 
 
