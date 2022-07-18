@@ -217,24 +217,23 @@ namespace Arxivar.LogonProvider.OpenIdentity
                     throw new SecurityException(string.Format("Unable to determine the claim: {0}", TokenClaims.Email));
                 }
 
-
                 // PreferredUsername
                 var preferreduserName = jsonToken.Payload.Claims.FirstOrDefault(x => x.Type.Equals(TokenClaims.PreferredUsername))?.Value;
-                if (string.IsNullOrWhiteSpace(email))
+                if (string.IsNullOrWhiteSpace(preferreduserName))
                 {
                     throw new SecurityException(string.Format("Unable to determine the claim: {0}", TokenClaims.PreferredUsername));
                 }
 
                 // User name
                 var userName = jsonToken.Payload.Claims.FirstOrDefault(x => x.Type.Equals(TokenClaims.Name))?.Value;
-                if (string.IsNullOrWhiteSpace(email))
+                if (string.IsNullOrWhiteSpace(userName))
                 {
                     throw new SecurityException(string.Format("Unable to determine the claim: {0}", TokenClaims.Name));
                 }
 
                 // Issuer
                 var issuer = jsonToken.Payload.Claims.FirstOrDefault(x => x.Type.Equals(TokenClaims.Issuer))?.Value;
-                if (string.IsNullOrWhiteSpace(email))
+                if (string.IsNullOrWhiteSpace(issuer))
                 {
                     throw new SecurityException(string.Format("Unable to determine the claim: {0}", TokenClaims.Issuer));
                 }
