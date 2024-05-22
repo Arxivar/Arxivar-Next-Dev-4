@@ -2,14 +2,17 @@
 # ARXivar Next Dev 4
 
 > Examples for DEV course of ARXivar NEXT (Day 4)
-* Server plugins: WCF and WebApi
+* Server plugins: WebApi and WCF
 * Server rest plugins
 * Workflow V1 Plugins: Link and Task
 * Workflow V2 Plugin: Link
 
-## Installation
+## Requirements
 
-* To use these examples you need VisualStudio 2019 or later (or any IDE that support .Net Framework and .Net Core 3.1).
+> - Microsoft Visual Studio 2019 or later (or any IDE that supports Microsoft .NET Framework 4.5.2 and Microsoft .NET 6)
+> - Microsoft .NET Framework 4.5.2
+> - Microsoft .NET 6
+> - ARXivar Next 2.X
 
 ## Compile and run
 
